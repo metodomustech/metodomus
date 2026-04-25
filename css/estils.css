@@ -1,0 +1,24 @@
+.card {
+  position: relative;
+  background: #e7b8bf;
+  color: black;
+  padding: 25px 20px;
+  border-radius: 40px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  overflow: visible;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 60px;
+  height: 60px;
+}
