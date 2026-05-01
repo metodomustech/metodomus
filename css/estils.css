@@ -1,97 +1,172 @@
 
 
-@media (max-width: 600px) {
-  .columna { width: 100%; }
-}
-
-*{
+/* RESET */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-
 }
 
-
-/**********************************************/
-/*FONS DE PANTALLA "LA FOTO BLAVA"*/
-  body {
+/* FONS */
+body {
     background-image: url('../img/fons.png');
-    background-size: cover; /* imatge ocupa tota la pantalla */
-    background-repeat: no-repeat; /* no es repeteix la imatge */
-    background-position: center; /* Centra la imagen */
-    background-attachment: fixed; /* Mante la imagen fixa al fer scroll */
-    margin: 0; /* Elimina marges predeterminats */
-    height: 100vh; /* Assegura que arribi a dalt de la finestra */
-  }
-/****************************************************/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    font-family: Arial, sans-serif;
 
+    /* evita que el header tapi contingut */
+    padding-top: 80px;
+}
+
+/* CONTENIDOR */
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    width: 90%;
 }
 
-
-
-/* Estils barra superior fixa */
-.header {
-    /*z-index: 1000; /* per sobre d altres elements */
-
-    background-color: #333; /*color de fons*/
-    color: white; /*color lletres*/
-    padding: 1rem 5%; /* Padding relatiu */
-    display: flex;
-    justify-content: space-between; /* Separa logo y menú */
-    align-items: center; /* Centra vertical */
-    position: fixed; /* el menu no es mou i el contingut de la pagina si */
+/* HEADER */
+header {
+    background-color: #333;
+    position: fixed;
     width: 100%;
-    box-sizing: border-box; /* Asegura que el padding no aumente el ancho */
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.navbar {
+/* NAV */
+.menu {
     display: flex;
-    justify-content: space-between; /* Logo a l esq, links a la dret */
+    justify-content: space-between;
     align-items: center;
-    padding: clamp(1rem, 5vw, 2rem);
-    background-color: #333; /* Color de fons */
-    
-    
+    padding: 15px 0;
 }
 
-
-.logo {
-    color: white;
-    font-size: 1.5rem;
-    text-decoration: none;
-    font-weight: bold;
-    list-style-type: none;
+/* LOGO */
+.logo img {
+    max-width: 140px;
 }
 
-
-/* Estils de la llista - ¡! */
-
+/* MENÚ */
 .menu-derecha {
     display: flex;
-    justify-content: flex-end; /* Alinea elements a la dreta */
-    list-style-type: none; /* treu els punts de la llista */
-    margin: 0;
+    gap: 20px;
 }
 
-/* Estil elements de llista dins de etiqueta li */
-.menu-derecha li {
-    margin-left: 20px; /* Espai entre opcions */
-}
-
-/* Estil enllaços etiqueta a href */
 .menu-derecha a {
-    text-decoration: none; /* treu subratllat */
-    color: white; /* Color text */
-    font-weight: bold; /*negreta*/
+    color: white;
+    font-weight: bold;
     padding: 5px 10px;
+    transition: color 0.3s;
 }
 
-/* Efecte al passar el mouse */
 .menu-derecha a:hover {
     color: #f4a261;
+}
+
+/* HAMBURGUESA */
+.hamburguesa {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburguesa span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* ANIMACIÓ ✖ */
+.hamburguesa.actiu span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburguesa.actiu span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburguesa.actiu span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 900;
+}
+
+.overlay.actiu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+    .menu-derecha {
+        gap: 10px;
+    }
+
+    .menu-derecha a {
+        font-size: 14px;
+    }
+}
+
+/* MÒBIL */
+@media (max-width: 768px) {
+
+    .hamburguesa {
+        display: flex;
+    }
+
+    .menu {
+        position: relative;
+    }
+
+    .menu-derecha {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #333;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        z-index: 1000;
+    }
+
+    .menu-derecha.actiu {
+        max-height: 400px;
+    }
+
+    .menu-derecha a {
+        padding: 15px;
+        border-bottom: 1px solid #555;
+    }
+}
+
+/* MÒBIL PETIT */
+@media (max-width: 480px) {
+    .logo img {
+        max-width: 110px;
+    }
 }

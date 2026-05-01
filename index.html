@@ -8,25 +8,63 @@
 </head>
 
 <body>
-    <header>
- 
-        <nav class="menu container">
-            <ul class="logo">
-                <li><a href="#">
-                    <img src="img/logo_trnsp.png" alt="LOGO">
-                </a></li>
-            </ul>
-            <ul class="menu-derecha">
-                <li><a href="#">ajuts tècnics</a></li>
-                <li><a href="#">formació a professionals</a></li>
-                <li><a href="#">assessorament a domicili</a></li>
-                <li><a href="#">domòtica</a></li>
-                <li><a href="#">servei tècnic</a></li>
-                <li><a href="#">metodologia</a></li>
- 
-            </ul>
-        </nav>
-    </header>
+
+<header>
+    <nav class="menu container">
+        
+        <div class="logo">
+            <a href="#">
+                <img src="img/logo_trnsp.png" alt="LOGO">
+            </a>
+        </div>
+
+        <!-- BOTÓ HAMBURGUESA -->
+        <div class="hamburguesa" id="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- MENÚ -->
+        <ul class="menu-derecha" id="menu">
+            <li><a href="#">ajuts tècnics</a></li>
+            <li><a href="#">formació a professionals</a></li>
+            <li><a href="#">assessorament a domicili</a></li>
+            <li><a href="#">domòtica</a></li>
+            <li><a href="#">servei tècnic</a></li>
+            <li><a href="#">metodologia</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- JS -->
+<script>
+const hamburguesa = document.getElementById('hamburguesa');
+const menu = document.getElementById('menu');
+const overlay = document.getElementById('overlay');
+const links = document.querySelectorAll('#menu a');
+
+function toggleMenu() {
+    hamburguesa.classList.toggle('actiu');
+    menu.classList.toggle('actiu');
+    overlay.classList.toggle('actiu');
+}
+
+hamburguesa.addEventListener('click', toggleMenu);
+overlay.addEventListener('click', toggleMenu);
+
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburguesa.classList.remove('actiu');
+        menu.classList.remove('actiu');
+        overlay.classList.remove('actiu');
+    });
+});
+</script>
 
 </body>
 </html>
