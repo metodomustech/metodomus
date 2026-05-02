@@ -10,6 +10,10 @@
 }
 
 /* FONS */
+body{
+    background-image: none;
+}
+
 /* body {
     /*background-image: url('../img/fons.png');
     background-image: url('../img/ilustracio2.jpg');
@@ -74,8 +78,18 @@ header {
 
 
 main {
+    
+    background: white;   /* 🔥 clau */
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    
+    
     margin-top: 80px;
     padding: 40px 20px;
+
+
+
 }
 
 
