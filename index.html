@@ -69,7 +69,7 @@ hamburguesa.addEventListener('click', toggleMenu);
 overlay.addEventListener('click', toggleMenu);
 
 // 🔥 FUNCIÓ PER CARREGAR PÀGINES
-function carregarPagina(pagina) {
+/* function carregarPagina(pagina) {
 
     let ruta = "";
 
@@ -79,10 +79,30 @@ function carregarPagina(pagina) {
         hero.style.display = "flex";
     } else {
         hero.style.display = "none";
+        
+    }
+ */
+   function carregarPagina(pagina) {
+
+    const hero = document.querySelector('.hero');
+
+    if (hero) {
+        if (pagina === "home") {
+            hero.classList.remove('ocult');
+        } else {
+            hero.classList.add('ocult');
+        }
     }
 
-    
-
+    let ruta = "pages/" + pagina + ".html";
+    /*
+    fetch(ruta)
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("contingut").innerHTML = data;
+        });
+    } 
+    */
     switch(pagina) {
         case "home":
             ruta = "pages/home.html";
