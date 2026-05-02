@@ -35,11 +35,21 @@
     </nav>
 </header>
 
+<!-- 🔥 HERO (FONS PRINCIPAL) -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Autonomia a través de la tecnologia</h1>
+        <p>Solucions en domòtica i ajuts tècnics</p>
+    </div>
+</section>
+
 <!-- OVERLAY -->
 <div class="overlay" id="overlay"></div>
 
+
 <!-- CONTINGUT DINÀMIC -->
 <main id="contingut" class="contingut">
+    
     <!-- Aquí es carregaran les pàgines -->
 </main>
 
@@ -63,6 +73,16 @@ function carregarPagina(pagina) {
 
     let ruta = "";
 
+    const hero = document.querySelector('.hero');
+
+    if (pagina === "home") {
+        hero.style.display = "flex";
+    } else {
+        hero.style.display = "none";
+    }
+
+    
+
     switch(pagina) {
         case "home":
             ruta = "pages/home.html";
@@ -83,6 +103,7 @@ function carregarPagina(pagina) {
             ruta = "pages/metodologia.html";
             break;
     }
+
 
     fetch(ruta)
         .then(res => res.text())
