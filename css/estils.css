@@ -213,6 +213,9 @@ main {
 
 /* MÒBIL PETIT */
 @media (max-width: 480px) {
+    .hero.ocult {
+        display: none;
+    }    
     .logo img {
         max-width: 110px;
     }
