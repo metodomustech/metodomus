@@ -273,6 +273,9 @@ main {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .hero.ocult {
+        display: none;
+    }
     .contingut-ajuts {
         flex-direction: column;
     }
