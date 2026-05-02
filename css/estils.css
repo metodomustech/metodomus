@@ -205,6 +205,13 @@ main {
         padding: 15px;
         border-bottom: 1px solid #555;
     }
+
+    .hero.ocult {
+        display: none;
+    }
+    .contingut-ajuts {
+        flex-direction: column;
+    }    
 }
 
 
@@ -274,12 +281,4 @@ main {
     border-radius: 10px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .hero.ocult {
-        display: none;
-    }
-    .contingut-ajuts {
-        flex-direction: column;
-    }
-}
+
